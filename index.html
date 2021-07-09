@@ -3,19 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Code Challenge Quiz</title>
+    <link rel= "stylesheet" href="./assets/css/style.css">
+    <!--font awesome kit to for icons-->
+    <script src="https://kit.fontawesome.com/934f8f95a6.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <div id="timer"></div>
-
+    <div class= "flex-container">
+      <div id="home" class="flex-column flex-center">
+        <h1>Welcome to the JavaScript Coding Quiz</h1>
+        <!--Href for play button-->
+        <a href="/game.html" class="btn">Play</a>
+        <a href="/Highscore.html" class="highscore">High Scores<i class= "fas fa-crown"></i></a>
+      </div>
+    </div>
+  <header>
+    <div id="timer" ></div>
+    <div id="view-highscore"></div>
+  </header>
+  <main>
+    <div class= "flex-container">
     <div id="question"></div>
-
+  </div>
     <ul id="option-list"></ul>
+  
 
     <div id="question-result"></div>
 
-    <div id="change-question">Change Question</div>
-
+  <!--  <div id="change-question">Change Question</div>--> 
+</main>
     <script src="./script.js"></script>
   </body>
 </html>
