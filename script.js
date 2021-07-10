@@ -65,6 +65,11 @@ var questionResultEl = document.querySelector("#question-result");
 var timerEl = document.querySelector("#timer");
 //added variable for email input
 var initialsInput = document.querySelector('#initial');
+var saveScoreButton = document.getElementById('btn-save-highscore');
+var startButton = document.querySelector('#btn-start');
+var gameContainer= document.querySelector('#game');
+var welcomeContainer= document.querySelector('#home');
+var saveContainer= document.querySelector('#save');
 
 
 //setting the Index and counter at 0
@@ -76,16 +81,36 @@ var intervalId;
 
 
 function endQuiz() {
+  gameContainer.classList.add('hidden');
+  saveContainer.classList.remove('hidden');
+
   clearInterval(intervalId);
+  console.log(intervalId);
   var body = document.body;
-  body.innerHTML = "Game over, Your final score is:  " + score;
+  var finalscore = document.querySelector('#endScore');
+  finalscore.innerHTML = "Game over, Your final score is:  " + score;
 }
 
 //add logic to save score and email to highscore
 function saveScore(){
-  var endScore = localStorage.setItem('question-result');
-  var gamerInitials = localStorage.setItem('initial');
+  event.preventDefault();
+  initial = document.querySelector("#initials").value;
+  console.log(initial);
+  localStorage.setItem('score', score);
+  localStorage.setItem('initial', initial);
+
+  console.log(localStorage.getItem('score'));
+  console.log(localStorage.getItem('initial'));
+
+  displayHighScore();
+
+  
+  //add logic to return
+
+
 }
+
+
 
 function updateTime() {
   time--;
@@ -96,8 +121,10 @@ function updateTime() {
 }
 
 function renderQuestion() {
-  //
-  if (time == 0) {
+  welcomeContainer.classList.add('hidden');
+  gameContainer.classList.remove('hidden');
+  
+  if (time <= 0) {
     updateTime();
     return;
   }
@@ -105,7 +132,7 @@ function renderQuestion() {
   intervalId = setInterval(updateTime, 1000);
   
   questionEl.textContent = questions[questionIndex].question;
-
+  console.log(questions[questionIndex].question);
   optionListEl.innerHTML = "";
   questionResultEl.innerHTML = "";
 
@@ -118,6 +145,7 @@ function renderQuestion() {
     questionListItem.textContent = choices[i];
     optionListEl.append(questionListItem);
   }
+
 }
 
 function nextQuestion() {
@@ -129,7 +157,7 @@ function nextQuestion() {
 }
 
 function checkAnswer(event) {
-  clearInterval(intervalId);
+  //clearInterval(intervalId);
   if (event.target.matches("li")) {
     var answer = event.target.textContent;
     if (answer === questions[questionIndex].answer) {
@@ -144,17 +172,22 @@ function checkAnswer(event) {
   setTimeout(nextQuestion, 2000);
 }
 
+function displayHighScore (){
+  var highScoreContainer = document.querySelector("#high-score-list");
+  highScoreContainer.classList.remove('hidden');
 
+
+
+}
+
+saveScoreButton.addEventListener('click', saveScore );
+console.log(saveScoreButton);
 optionListEl.addEventListener("click", checkAnswer);
-renderQuestion();
+startButton.addEventListener('click', renderQuestion);
+
+//renderQuestion();
 
 
-document
-  .querySelector("#change-question")
-  .addEventListener("click", function () {
-    questionIndex++;
-    renderQuestion();
-  });
 
 
   //How do I do the view High score

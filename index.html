@@ -8,6 +8,14 @@
     <!--font awesome kit to for icons-->
     <script src="https://kit.fontawesome.com/934f8f95a6.js" crossorigin="anonymous"></script>
   </head>
+  <header>
+    <div id="timer" class= "timer-icon"></div>
+    <!--How do I add time in front of it?-->
+
+    <div id="highscore">
+        <a href="/Highscore.html" class="btn highscore">High Scores<i class= "fas fa-crown"></i></a>
+    </div>
+  </header>
   <body>
     <div class= "flex-container">
       <div id="home" class="flex-column flex-center">
@@ -16,11 +24,41 @@
         <p>
           Challenge yourself with this quick JavaScript Quiz. How High can you score before the timer runs out!!
         </p>
-        <a href="./game.html" class="btn">Start<i class="fas fa-play-circle"></i></a>
+        <div id= "btn-start" class="btn">Start<i class="fas fa-play-circle"></i></div>
         <a href="/Highscore.html" class="btn highscore">High Scores<i class= "fas fa-crown"></i></a>
       </div>
+      
+        <div id= "game" class= "game-container hidden">
+            <div id="quiz" class="flex-column flex-center">
+            <div id="question" class= "questions"></div>
+        
+            <ul id="option-list" class="choices"></ul>
+        
+            <div id="question-result" class= "results"></div>
+          
+            </div>
+        </div>
+        <div id="save" class="flex-container initials-page hidden">
+          <div id="end-game" class="flex center flex column">
+              <h1>You Made it! All done!</h1>
+              <h2 id="endScore"></h2>
+          <form class="highscore-storage">
+              <h3>Enter your Initials to save your score!</h3>
+              <label for="initials">Initials</label> 
+              <input id= "initials"type="text" name="initials" placeholder="Enter Initials">
+              <button class ="btn" id="btn-save-highscore">Save Highscore</button>
+          </form>
+          </div>
+          <div id="high-score" class= "hidden">
+            <h1>High Scores</h1>
+            <ul id= "high-score-list">
+
+            </ul>
+          </div>
+      </div>
+      
     </div>
   <!--  <div id="change-question">Change Question</div>--> 
-   <!--<script src="./script.js"></script>-->
+   <script src="./script.js"></script>
   </body>
 </html>
