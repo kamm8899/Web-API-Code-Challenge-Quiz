@@ -3,19 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel= "stylesheet" href="./assets/css/game.css">
     <link rel = "stylesheet" href="./assets/css/index.html">
+    <link rel= "stylesheet" href="./assets/css/game.css">
+    <script src="https://kit.fontawesome.com/934f8f95a6.js" crossorigin="anonymous"></script>
     <title>Code Challenge Quiz</title>
   </head>
   <body>
-    <div id="timer"></div>
+      <header>
+        <div id="timer" class= "timer-icon"></div>
+        <!--How do I add time in front of it?-->
 
-    <div id="question"></div>
+        <div id="highscore">
+            <a href="/Highscore.html" class="btn highscore">High Scores<i class= "fas fa-crown"></i></a>
+        </div>
+      </header>
 
-    <ul id="option-list"></ul>
+   <main>
+<div class="flex-container">
+    <div id="quiz" class="flex-column flex-center">
+    <div id="question" class= "questions"></div>
 
-    <div id="question-result"></div>
+    <ul id="option-list" class="choices"></ul>
 
+    <div id="question-result" class= "results"></div>
+    </div>
+</div>
+</main>
     <script src="./script.js"></script>
   </body>
+
 </html>

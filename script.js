@@ -148,7 +148,6 @@ document
   });
 
 
-  //how do I do the front page with start button
   //How do I do the view High score
   //WHEN the game is over
 //THEN I can save my initials and score

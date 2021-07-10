@@ -10,15 +10,6 @@
       background-color: rgb(24, 6, 105);
   }
 
-#question{
-      display:flex;
-      align-items: center;
-      color: black;
-      font-weight: bold;
-      font-size: 36px;
-      justify-items: center;
-      /*how do I get it in the center of the screen*/
-  }
   h1{
         font-size: 36px;
         color: rgb(247, 240, 240);
@@ -80,6 +71,5 @@
   }
  
 
-  /*How do I align the buttons into the center for play and High Score
 
 
