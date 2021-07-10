@@ -132,12 +132,12 @@ li:hover{
  
 }
 
-.highscore{
+/*.highscore{
     background: linear-gradient(80deg, rgba(0,181,204,1) 0%, rgba(0,181,204,1) 100%);
     margin: 0 auto;
     padding: 5px 0;
   }
-
+*/
   .btn:hover{
       transform: scale(1.03);
       transition: transform 150ms;
