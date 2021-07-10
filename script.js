@@ -63,10 +63,13 @@ var questionEl = document.querySelector("#question");
 var optionListEl = document.querySelector("#option-list");
 var questionResultEl = document.querySelector("#question-result");
 var timerEl = document.querySelector("#timer");
+//added variable for email input
+var initialsInput = document.querySelector('#initial');
+
 
 //setting the Index and counter at 0
 var questionIndex = 0;
-var correctCounter = 0;
+var score = 0;
 //setting time to 20 seconds
 var time = 20;
 var intervalId;
@@ -75,7 +78,13 @@ var intervalId;
 function endQuiz() {
   clearInterval(intervalId);
   var body = document.body;
-  body.innerHTML = "Game over, Your final score is:  " + correctCounter;
+  body.innerHTML = "Game over, Your final score is:  " + score;
+}
+
+//add logic to save score and email to highscore
+function saveScore(){
+  var endScore = localStorage.setItem('question-result');
+  var gamerInitials = localStorage.setItem('initial');
 }
 
 function updateTime() {
@@ -125,7 +134,7 @@ function checkAnswer(event) {
     var answer = event.target.textContent;
     if (answer === questions[questionIndex].answer) {
       questionResultEl.textContent = "Correct";
-      correctCounter++;
+      score++;
     } else {
       questionResultEl.textContent = "Incorrect";
       time = time - 2;
