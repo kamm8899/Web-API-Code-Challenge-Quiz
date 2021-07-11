@@ -10,7 +10,7 @@
   </head>
   <header>
     <div id="timer" class= "timer-icon"></div>
-    <!--How do I add time in front of it?-->
+    <!--How do I add time in front of it on all pages?-->
 
     <div id="highscore">
         <a href="/Highscore.html" class="btn highscore">High Scores<i class= "fas fa-crown"></i></a>
@@ -39,26 +39,31 @@
           
             </div>
         </div>
-        <div id="save" class="flex-container initials-page hidden">
+        <form id="save" class="flex-container initials-page hidden">
           <div id="end-game" class="flex center flex column">
               <h1>You Made it! All done!</h1>
               <h2 id="endScore"></h2>
-          <form class="highscore-storage">
+          <div class="highscore-storage">
               <h3>Enter your Initials to save your score!</h3>
              <!-- <label for="initials">Initials</label>--> 
               <input id= "initials"type="text" name="initials" placeholder="Enter Initials">
               <button class ="btn" id="btn-save-highscore">Save Highscore</button>
-          </form>
           </div>
+          </div>
+        </form>
           <div id="high-score" class= "hidden">
             <h1> All High Scores</h1>
             <ul id= "high-score-list">
+              <h1 id= "gamer-initials"></h1>
+              <div id = "end-score">
+
+              </div>
                <!--How do I do the High score box-->
             <!--How do I do the go back to start box-->
             <!--How to do box for clearing high score-->
             </ul>
           </div> 
-      </div>
+      
       
     
   <!--  <div id="change-question">Change Question</div>--> 

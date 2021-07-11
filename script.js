@@ -60,11 +60,13 @@ var questionResultEl = document.querySelector("#question-result");
 var timerEl = document.querySelector("#timer");
 //added variable for email input
 var initialsInput = document.querySelector('#initial');
-var saveScoreButton = document.getElementById('btn-save-highscore');
+var saveScoreButton = document.querySelector('#btn-save-highscore');
 var startButton = document.querySelector('#btn-start');
 var gameContainer= document.querySelector('#game');
 var welcomeContainer= document.querySelector('#home');
 var saveContainer= document.querySelector('#save');
+var gamerInitial = document.querySelector('#gamer-initials');
+var endScore = document.querySelector('#end-score');
 
 
 //setting the Index and counter at 0
@@ -88,7 +90,7 @@ function endQuiz() {
 
 //add logic to save score and email to highscore
 function saveScore(){
-  event.preventDefault();
+  
   initial = document.querySelector("#initials").value;
   console.log(initial);
   localStorage.setItem('score', score);
@@ -106,21 +108,21 @@ function saveScore(){
 function updateTime() {
   time--;
   timerEl.textContent = time;
-  if (time <= 0) {
+  if (time === 0) {
     endQuiz();
   }
 }
 
 function renderQuestion() {
-  welcomeContainer.classList.add('hidden');
-  gameContainer.classList.remove('hidden');
+  //welcomeContainer.classList.add('hidden');
+  //gameContainer.classList.remove('hidden');
   
-  if (time <= 0) {
-    updateTime();
-    return;
-  }
+  //if (time <= 0) {
+    //updateTime();
+    //return;
+  //}
 
-  intervalId = setInterval(updateTime, 1000);
+  //intervalId = setInterval(updateTime, 1000);
   
   questionEl.textContent = questions[questionIndex].question;
   console.log(questions[questionIndex].question);
@@ -141,10 +143,15 @@ function renderQuestion() {
 
 function nextQuestion() {
   questionIndex++;
-  if (questionIndex === questions.length) {
+  if (questionIndex >= questions.length -1) {
     time = 0;
+    //added clear Interval
+    endQuiz();
   }
-  renderQuestion();
+  else{
+    renderQuestion();
+  }
+  
 }
 
 function checkAnswer(event) {
@@ -154,26 +161,39 @@ function checkAnswer(event) {
     if (answer === questions[questionIndex].answer) {
       questionResultEl.textContent = "Correct";
       score++;
-    } else {
+    } else{
       questionResultEl.textContent = "Incorrect";
       time = time - 2;
       timerEl.textContent = time;
     }
   }
+
   setTimeout(nextQuestion, 2000);
 }
 
 function displayHighScore (){
-  var highScoreContainer = document.querySelector("#high-score-list");
-  highScoreContainer.classList.remove('hidden');
-  saveContainer.classList.add('hidden');
-
+document.querySelector("#high-score").classList.remove('hidden');
+saveContainer.classList.add('hidden');
+  
+  
+  endScore.textContent = localStorage.getItem('score');
+  gamerInitial.textContent = localStorage.getItem('initial');
 }
 
-saveScoreButton.addEventListener('click', saveScore );
+saveScoreButton.addEventListener('click', function(event){
+  event.preventDefault();
+  saveScore();
+} );
+
 console.log(saveScoreButton);
 optionListEl.addEventListener("click", checkAnswer);
-startButton.addEventListener('click', renderQuestion);
+startButton.addEventListener('click', function(){
+  intervalId = setInterval(updateTime, 1000);
+  welcomeContainer.classList.add('hidden');
+  gameContainer.classList.remove('hidden');
+  renderQuestion();
+
+});
 
 //renderQuestion();
 
