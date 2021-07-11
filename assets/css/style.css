@@ -19,6 +19,7 @@
   h1{
         font-size: 36px;
         color: rgb(247, 240, 240);
+        text-align: center;
   }
   .flex-container{
       width: 100%;
@@ -106,6 +107,22 @@
   }
 
   /*game styling*/
+
+h2{
+    font-weight:unset;
+    color:yellow;
+    text-align: center;
+    font-size: 20px;
+}
+
+h3{
+    text-align: center;
+    font-size: 25px;
+    color: rgb(156, 144, 144);
+    padding: 20px 40px;
+
+}
+
   
 
 
@@ -124,6 +141,7 @@
     font-weight: bold;
     padding: 20px 0;
     margin: 0 auto;
+    font-size: 25px;
 }
 .choices ul li{
     color: white;
@@ -161,16 +179,31 @@ li:hover{
     margin-left: 15px;
       font-size:20px;
   }
-  
-  .results::after{
-      font-weight:bold;
+
+  .results{
+      font-weight: bold;
       display: flex;
-      justify-content:center;
+      justify-content: center;
+      padding: 40px 0;
+     
+  }
+  /*how do I add the border after its correct*/
+  .results::after{
+
       border-top:  5px solid grey;
   }
   .hidden{
       display:none;
   }
+
+  ::marker {
+    unicode-bidi: isolate;
+    font-variant-numeric: tabular-nums;
+    text-transform: none;
+    text-indent: 0px !important;
+    text-align: start !important;
+    text-align-last: start !important;
+}
   /*how to make the border appear once clicked, after wasnt working*/
 
 

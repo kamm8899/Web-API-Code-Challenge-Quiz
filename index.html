@@ -20,12 +20,12 @@
     <div class= "flex-container">
       <div id="home" class="flex-column flex-center">
         <h1>Welcome to the JavaScript Coding Quiz</h1>
-        <!--Href for play button-->
         <p>
           Challenge yourself with this quick JavaScript Quiz. How High can you score before the timer runs out!!
         </p>
         <div id= "btn-start" class="btn">Start<i class="fas fa-play-circle"></i></div>
-        <a href="/Highscore.html" class="btn-highscore">High Scores<i class= "fas fa-crown"></i></a>
+        <!--Changed a href to div for button-->
+        <div id="btn-highscore" class="btn-highscore">High Scores<i class= "fas fa-crown"></i></div>
       </div>
     </div>
       
@@ -45,17 +45,19 @@
               <h2 id="endScore"></h2>
           <form class="highscore-storage">
               <h3>Enter your Initials to save your score!</h3>
-              <label for="initials">Initials</label> 
+             <!-- <label for="initials">Initials</label>--> 
               <input id= "initials"type="text" name="initials" placeholder="Enter Initials">
               <button class ="btn" id="btn-save-highscore">Save Highscore</button>
           </form>
           </div>
           <div id="high-score" class= "hidden">
-            <h1>High Scores</h1>
+            <h1> All High Scores</h1>
             <ul id= "high-score-list">
-
+               <!--How do I do the High score box-->
+            <!--How do I do the go back to start box-->
+            <!--How to do box for clearing high score-->
             </ul>
-          </div>
+          </div> 
       </div>
       
     

@@ -1,60 +1,55 @@
 var questions = [
   {
     question: "Commonly used data types DO NOT include:",
-    choices: ["strings", "booleans", "alerts", "numbers"],
-    answer: "alerts",
+    choices: ["A.strings", "B.booleans", "C.alerts", "D.numbers"],
+    answer: "C.alerts",
   },
   {
     question:
       "The condition in an if / else statement is enclosed within ____.",
-    choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-    answer: "parentheses",
+    choices: ["A.quotes", "B.curly brackets", "C.parentheses", "D.square brackets"],
+    answer: "C.parentheses",
   },
   {
     question:
       "Javascript is a .........-side programming language",
-    choices: ["Client", "Server", "Both", "None"],
-    answer: "Both",
+    choices: ["A.Client", "B.Server", "C.Both", "D.None"],
+    answer: "C.Both",
   },
-  {
-    question:
-      "Javascript is a .........-side programming language",
-    choices: ["Client", "Server", "Both", "None"],
-    answer: "Both",
-  },
+ 
   {
     question:
       "Which of the following will write message 'Hello DataFlair!' in an alert Box?",
-    choices: ["alertBox('Hello DataFlair!')", "alert(Hello DataFlair!", "msgAlert('Hello DataFlair')", "alert('Hello DataFlair!');"],
-    answer: "alert('Hello DataFlair!')",
+    choices: ["A. alertBox('Hello DataFlair!')", "B. alert(Hello DataFlair!", "C.msgAlert('Hello DataFlair')", "D. alert('Hello DataFlair!');"],
+    answer: "D. alert('Hello DataFlair!')",
   },
   {
   question:
     "How do you find the minimum of x and y using JavaScript",
-  choices: ["min(x,y)", "Math.min(x,y)", "Math.min(xy)", "min(xy)"],
-  answer: "Math.min(x,y)",
+  choices: ["A.min(x,y)", "B. Math.min(x,y)", "C. Math.min(xy)", "D. min(xy)"],
+  answer: "B.Math.min(x,y)",
   },
   {
     question:
       "Which of the following statements will throw an error? ",
-    choices: ["var fun = function bar(){}", "var fun = function bar {}", "function fn (){}"],
-    answer: "var fun = function bar {}",
+    choices: ["A.var fun = function bar(){}", "B.var fun = function bar {}", "C.function fn (){}"],
+    answer: "B. var fun = function bar {}",
     },
     {
       question:
         "If the value of x is 40, then what is the output of the following program?(x % 10 == 0)? console.log(“Divisible by 10”) : console.log(“Not divisible by 10”)",
-      choices: ["ReferenceError", "Divisible by 10", "Not divisible by 10", "None of the above"],
-      answer: "Divisible by 10",
+      choices: ["A. ReferenceError", "B. Divisible by 10", "C. Not divisible by 10", "D. None of the above"],
+      answer: "B. Divisible by 10",
       },
       {
         question:"Which JavaScript label catches all the values, except for the ones specified?",
-        choices: ["catch", "label", "try", "default"],
-        answer: "default",
+        choices: ["A. catch", "B. label", "C. try", "D. default"],
+        answer: "D. default",
         },
 
         {
           question:"Which are the correct 'if' statements to execute certain code if 'x' equal to 2? ",
-          choices: ["if(x 2)", "if(x=2)", "if(x==2)", "if(x!=2)"],
+          choices: ["A. if(x 2)", "B. if(x=2)", "C. if(x==2)", "D. if(x!=2)"],
           answer: "if(x==2)",
           },
 ];
@@ -103,10 +98,6 @@ function saveScore(){
   console.log(localStorage.getItem('initial'));
 
   displayHighScore();
-
-  
-  //add logic to return
-
 
 }
 
@@ -175,8 +166,7 @@ function checkAnswer(event) {
 function displayHighScore (){
   var highScoreContainer = document.querySelector("#high-score-list");
   highScoreContainer.classList.remove('hidden');
-
-
+  saveContainer.classList.add('hidden');
 
 }
 
