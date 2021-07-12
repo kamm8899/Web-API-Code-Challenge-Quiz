@@ -149,6 +149,7 @@ h3{
 /*style choices for the list*/
 li {
     display:list-item;
+    list-style-type:none;  
     text-align: center;  
     background: linear-gradient(80deg, rgba(247,202,24,1) 0%, rgba(247,202,24,1) 100%);
     margin: 8px auto;
@@ -203,6 +204,29 @@ li:hover{
     text-indent: 0px !important;
     text-align: start !important;
     text-align-last: start !important;
+}
+
+#gamer-initials{
+    font-size:25px;
+    padding: 3px 0  3px;
+    width: 15%;
+    text-align: center;
+    text-decoration: none;
+    color: yellow;
+    background: linear-gradient(80deg, rgba(142,68,173,1) 0%, rgba(142,68,173,1) 100%);
+    border-radius: 3px;
+    justify-content: center;
+    flex-direction:column;
+    margin: 9px 600px;
+}
+
+#end-score div{
+    font-size: 25px;
+    width: 15%;
+    text-align: center;
+    text-decoration: none;
+    color: yellow;
+
 }
   /*how to make the border appear once clicked, after wasnt working*/
 

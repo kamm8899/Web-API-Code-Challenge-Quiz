@@ -125,7 +125,7 @@ function renderQuestion() {
   //intervalId = setInterval(updateTime, 1000);
   
   questionEl.textContent = questions[questionIndex].question;
-  console.log(questions[questionIndex].question);
+  //console.log(questions[questionIndex].question);
   optionListEl.innerHTML = "";
   questionResultEl.innerHTML = "";
 
@@ -175,9 +175,9 @@ function displayHighScore (){
 document.querySelector("#high-score").classList.remove('hidden');
 saveContainer.classList.add('hidden');
   
-  
-  endScore.textContent = localStorage.getItem('score');
-  gamerInitial.textContent = localStorage.getItem('initial');
+endScore.textContent = localStorage.getItem('score');
+gamerInitial.textContent = localStorage.getItem('initial');
+
 }
 
 saveScoreButton.addEventListener('click', function(event){
@@ -197,9 +197,9 @@ startButton.addEventListener('click', function(){
 
 //renderQuestion();
 
-
-
-
-  //How do I do the view High score
-  //WHEN the game is over
-//THEN I can save my initials and score
+//Questions for Office hours:
+//1. Highscore button at the beginning
+// **2. How do I get the score, and the name on the same line.
+//***Styles how do I get the High Score button at the same line as the Time
+//I need the time on the first page
+//*Why does it not save all my highScores, only the most recent one? 
