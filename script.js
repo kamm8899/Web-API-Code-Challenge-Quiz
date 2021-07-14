@@ -34,24 +34,24 @@ var questions = [
       "Which of the following statements will throw an error? ",
     choices: ["A.var fun = function bar(){}", "B.var fun = function bar {}", "C.function fn (){}"],
     answer: "B. var fun = function bar {}",
-    },
-    {
+  },
+  {
       question:
         "If the value of x is 40, then what is the output of the following program?(x % 10 == 0)? console.log(“Divisible by 10”) : console.log(“Not divisible by 10”)",
       choices: ["A. ReferenceError", "B. Divisible by 10", "C. Not divisible by 10", "D. None of the above"],
       answer: "B. Divisible by 10",
-      },
-      {
+  },
+  {
         question:"Which JavaScript label catches all the values, except for the ones specified?",
         choices: ["A. catch", "B. label", "C. try", "D. default"],
         answer: "D. default",
-        },
+  },
 
-        {
+  {
           question:"Which are the correct 'if' statements to execute certain code if 'x' equal to 2? ",
           choices: ["A. if(x 2)", "B. if(x=2)", "C. if(x==2)", "D. if(x!=2)"],
           answer: "if(x==2)",
-          },
+  },
 ];
 
 var questionEl = document.querySelector("#question");
@@ -67,6 +67,11 @@ var welcomeContainer= document.querySelector('#home');
 var saveContainer= document.querySelector('#save');
 var gamerInitial = document.querySelector('#gamer-initials');
 var endScore = document.querySelector('#end-score');
+var playAgain = document.querySelector('#btn-start-page');
+var highScorePage =document.querySelector("#high-score");
+var startHighScorePage = document.querySelector('#btn-highscore');
+
+
 
 
 //setting the Index and counter at 0
@@ -80,12 +85,15 @@ var intervalId;
 function endQuiz() {
   gameContainer.classList.add('hidden');
   saveContainer.classList.remove('hidden');
+  highScorePage.classList.add('hidden');
 
   clearInterval(intervalId);
   console.log(intervalId);
   var body = document.body;
   var finalscore = document.querySelector('#endScore');
+  timerEl.textContent = "0";
   finalscore.innerHTML = "Game over, Your final score is:  " + score;
+
 }
 
 //add logic to save score and email to highscore
@@ -96,8 +104,12 @@ function saveScore(){
   localStorage.setItem('score', score);
   localStorage.setItem('initial', initial);
 
+
+
   console.log(localStorage.getItem('score'));
   console.log(localStorage.getItem('initial'));
+
+
 
   displayHighScore();
 
@@ -108,19 +120,21 @@ function saveScore(){
 function updateTime() {
   time--;
   timerEl.textContent = time;
-  if (time === 0) {
+  if (time <= 0) {
     endQuiz();
   }
+
 }
 
 function renderQuestion() {
   //welcomeContainer.classList.add('hidden');
   //gameContainer.classList.remove('hidden');
   
-  //if (time <= 0) {
-    //updateTime();
-    //return;
-  //}
+  
+  if (time === 0) {
+    updateTime();
+    return;
+}
 
   //intervalId = setInterval(updateTime, 1000);
   
@@ -143,9 +157,10 @@ function renderQuestion() {
 
 function nextQuestion() {
   questionIndex++;
-  if (questionIndex >= questions.length -1) {
+  if (questionIndex >= questions.length) {
     time = 0;
     //added clear Interval
+    //clearInterval(intervalId);
     endQuiz();
   }
   else{
@@ -153,9 +168,10 @@ function nextQuestion() {
   }
   
 }
-
+  
 function checkAnswer(event) {
   //clearInterval(intervalId);
+  //unchecking this does not result in the correct subtraction
   if (event.target.matches("li")) {
     var answer = event.target.textContent;
     if (answer === questions[questionIndex].answer) {
@@ -172,8 +188,11 @@ function checkAnswer(event) {
 }
 
 function displayHighScore (){
-document.querySelector("#high-score").classList.remove('hidden');
+highScorePage.classList.remove('hidden');
 saveContainer.classList.add('hidden');
+playAgain.classList.remove('hidden');
+welcomeContainer.classList.add('hidden');
+
   
 endScore.textContent = localStorage.getItem('score');
 gamerInitial.textContent = localStorage.getItem('initial');
@@ -187,19 +206,28 @@ saveScoreButton.addEventListener('click', function(event){
 
 console.log(saveScoreButton);
 optionListEl.addEventListener("click", checkAnswer);
-startButton.addEventListener('click', function(){
+startButton.addEventListener('click', startQuiz);
+
+function startQuiz(){
+  saveContainer.classList.add('hidden');
+
+  time = 20;
   intervalId = setInterval(updateTime, 1000);
   welcomeContainer.classList.add('hidden');
   gameContainer.classList.remove('hidden');
+  highScorePage.classList.add('hidden');
+  playAgain.classList.add('hidden');
   renderQuestion();
+  
+}
+playAgain.addEventListener("click", startQuiz);
+startHighScorePage.addEventListener("click", displayHighScore);
 
-});
+//add high score responsiveness
+//highScoreButton.addEventListener("click", displayHighScore);
 
 //renderQuestion();
 
 //Questions for Office hours:
-//1. Highscore button at the beginning
-// **2. How do I get the score, and the name on the same line.
-//***Styles how do I get the High Score button at the same line as the Time
-//I need the time on the first page
-//*Why does it not save all my highScores, only the most recent one? 
+
+//how to make the border appear once clicked, after wasnt working*/

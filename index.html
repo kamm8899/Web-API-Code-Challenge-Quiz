@@ -9,11 +9,8 @@
     <script src="https://kit.fontawesome.com/934f8f95a6.js" crossorigin="anonymous"></script>
   </head>
   <header>
-    <div id="timer" class= "timer-icon"></div>
+    <div id="timer" class= "timer-icon"> Time: 20</div>
     <!--How do I add time in front of it on all pages?-->
-
-    <div id="highscore">
-        <a href="/Highscore.html" class="btn highscore">High Scores<i class= "fas fa-crown"></i></a>
     </div>
   </header>
   <body>
@@ -25,7 +22,7 @@
         </p>
         <div id= "btn-start" class="btn">Start<i class="fas fa-play-circle"></i></div>
         <!--Changed a href to div for button-->
-        <div id="btn-highscore" class="btn-highscore">High Scores<i class= "fas fa-crown"></i></div>
+        <div id="btn-highscore" class="btn btn-highscore">High Scores<i class= "fas fa-crown"></i></div>
       </div>
     </div>
       
@@ -52,16 +49,13 @@
           </div>
         </form>
           <div id="high-score" class= "hidden">
-            <h1> All High Scores</h1>
+            <h1>High Score</h1>
             <ul id= "high-score-list">
-              <h1 id= "gamer-initials"></h1>
-              <div id = "end-score">
-
+              <p><span id= "gamer-initials"></span>: <span id= "end-score">Score</span>
+              </p>
               </div>
-               <!--How do I do the High score box-->
-            <!--How do I do the go back to start box-->
-            <!--How to do box for clearing high score-->
             </ul>
+            <button class="btn start-page hidden" id= "btn-start-page">Play again!<i class="fas fa-play-circle"></i></button>
           </div> 
       
       
@@ -71,5 +65,3 @@
   </body>
 </html>
 
-
-<!--How to add timer to the top and Highscores to the main page-->
